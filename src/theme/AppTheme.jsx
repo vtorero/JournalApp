@@ -1,6 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { purpleTheme } from './';
+import { purpleTheme } from './purpleTheme';
 export const AppTheme = ({children}) => {
   return (
     <ThemeProvider theme={purpleTheme}>
