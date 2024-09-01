@@ -8,6 +8,7 @@ export const AppRouter = () => {
 
   const {status} = useSelector(state=>state.auth);
 
+
   if(status ==='cheking'){
     return <CheckinAuth/>
   }
