@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material"
-import { Children } from "react"
+
 
 export const AuthLayaout = ({children,title=''}) => {
   return (

@@ -6,7 +6,7 @@ initialState: {
     status:'cheking', //cheking ,not-authenticated,authenticated
     uid:null,
     email:null,
-    displayname:null,
+    displayName:null,
     photoURL:null,
     errorMessage:null
 },
@@ -15,7 +15,7 @@ login:(state,{payload})=>{
         state.status='authenticated', //cheking ,not-authenticated,authenticated
         state.uid=payload.uid;
         state.email=payload.email;
-        state.displayname=payload.displayname;
+        state.displayName=payload.displayName;
         state.photoURL=payload.photoURL;
         state.errorMessage=null;
 },
@@ -23,13 +23,14 @@ logout:(state,{payload})=>{
        state.status='not-authenticated', //cheking ,not-authenticated,authenticated
        state.uid=null;
        state.email=null;
-       state.displayname=null;
+       state.displayName=null;
        state.photoURL=null;
        state.errorMessage= payload?.errorMessage;
 
 },
 chekingCredentials:(state)=>{
  state.status='cheking';
+
     }
 }
 });
