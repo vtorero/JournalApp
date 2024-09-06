@@ -1,15 +1,27 @@
+import { useDispatch } from "react-redux";
 import { Grid, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import {TurnedInNot} from '@mui/icons-material';
-export const SideBarItem = ({note}) => {
+import { setActiveNote, startSetActive } from "../../store/journal";
+
+export const SideBarItem = ({title='',body,id,date,imageUrls=[]}) => {
+  const dispatch =useDispatch();
+
+  const onClickSetActive=()=>{
+
+    dispatch(setActiveNote({title,body,id,date,imageUrls}))
+
+
+  }
+
   return (
-    <ListItem key={note.id} disablePadding>
-    <ListItemButton>
-        <ListItemIcon>
+    <ListItem key={id} disablePadding>
+    <ListItemButton onClick={onClickSetActive}>
+        <ListItemIcon >
             <TurnedInNot/>
         </ListItemIcon>
         <Grid container>
-            <ListItemText primary={note.title}/>
-            <ListItemText secondary={note.body}/>
+            <ListItemText primary={title}/>
+            <ListItemText secondary={body}/>
 
         </Grid>
     </ListItemButton>

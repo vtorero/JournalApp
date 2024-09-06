@@ -6,7 +6,7 @@ initialState: {
     isSaving:false,
     messageSave:'',
     notes:[],
-    active:null
+    active:null,
     /*active:{
         id:'abc123',
         title:'',
@@ -14,7 +14,7 @@ initialState: {
         date:123456,
         imagesUrl:[]
     }*/
-
+    messageSaved:''
 },
 reducers: {
 savingNote:(state)=>{
@@ -33,10 +33,17 @@ setNotes: (state, action ) => {
 state.notes = action.payload
 },
 setSaving: (state ) => {
-
+state.isSaving=true;
 },
 updateNote: (state, action ) => {
-
+state.isSaving=false;
+state.notes = state.notes.map( note => {
+    if ( note.id === action.payload.id ) {
+        return action.payload;
+    }
+    return note;
+});
+state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
 },
 deleteNoteById: (state, action ) => {
 
