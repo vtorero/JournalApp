@@ -48,7 +48,29 @@ state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
 deleteNoteById: (state, action ) => {
 
 },
+
+setPhotosToActiveNote:(state,action) =>{
+state.active.imageUrls =[...state.active.imageUrls,...action.payload];
+state.isSaving=false;
+},
+clearNotesLogout:(state)=>{
+    state.isSaving=false;
+    state.messageSave='';
+    state.notes=[]
+    state.active=null;
+}
+
 }
 });
 // Action creators are generated for each case reducer function
-export const { state,addNewEmptyNote,setActiveNote,setNotes,setSaving,updateNote,deleteNoteById,savingNote} = journalSlice.actions;
+export const {
+    state,
+    setPhotosToActiveNote,
+    addNewEmptyNote,
+    setActiveNote,
+    setNotes,
+    setSaving,
+    updateNote,
+    deleteNoteById,
+    clearNotesLogout,
+    savingNote} = journalSlice.actions;
