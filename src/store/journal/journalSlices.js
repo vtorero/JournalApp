@@ -46,6 +46,8 @@ state.notes = state.notes.map( note => {
 state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
 },
 deleteNoteById: (state, action ) => {
+    state.active=null;
+    state.notes = state.notes.filter(note=> note.id !== action.payload);
 
 },
 
